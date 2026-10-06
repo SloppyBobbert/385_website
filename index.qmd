@@ -1,0 +1,7 @@
+---
+title: "385_website"
+---
+
+The website example I liked was this cool opensource recipe book where anyone can contribute their own recipes with a cool nifty home animation:
+
+<https://fluidsyndicate.com/>

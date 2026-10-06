@@ -1,0 +1,5 @@
+---
+title: "About"
+---
+
+Hi, I'm a third year double majoring in Compute Science and Math here at Chico State.

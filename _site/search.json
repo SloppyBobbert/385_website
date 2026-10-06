@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "ae05-git-together.html",
+    "href": "ae05-git-together.html",
+    "title": "AE05 - Git together",
+    "section": "",
+    "text": "Team name: Team C for “Cool”\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "AE05 - Git together"
+    ]
+  },
+  {
+    "objectID": "ae05-git-together.html#setup",
+    "href": "ae05-git-together.html#setup",
+    "title": "AE05 - Git together",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(scales)\nlibrary(unvotes)\n\nunv &lt;- unvotes::un_votes %&gt;%\n  inner_join(un_roll_calls, by = \"rcid\") %&gt;%\n  inner_join(un_roll_call_issues, by = \"rcid\")",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "AE05 - Git together"
+    ]
+  },
+  {
+    "objectID": "ae05-git-together.html#team-questions",
+    "href": "ae05-git-together.html#team-questions",
+    "title": "AE05 - Git together",
+    "section": "Team questions",
+    "text": "Team questions\n\nQ1. How does one country vote?\nPick one country (check its spelling in the AE01 Appendix) and make a bar chart of its votes. Does it vote yes more often than no?\n\nunv  %&gt;%\n  filter(country == \"United States\") %&gt;%\n  ggplot(aes(x = vote, fill = vote)) +\n  geom_bar() \n\n\n\n\n\n\n\n\n\n\nQ2. What gets voted on the most?\nMake a frequency table of issue. Which issue has the most votes?\n\ntable(unv$issue)\n\n\n                         Colonialism         Arms control and disarmament \n                              129708                               170497 \n                Economic development                         Human rights \n                              108759                               156623 \n                Palestinian conflict Nuclear weapons and nuclear material \n                              158656                               133635 \n\n\nThe issue with the most votes is “Arms Control and Disarmament” with 170497 votes.\n\n\nQ3. U.S. yes votes by issue\nFor the United States, calculate the proportion of yes votes on each issue. Which issue does it vote yes on the most? The least?\n\nunv |&gt;\n  group_by(country, issue) |&gt;\n  filter(country == \"United States\") |&gt;\n  summarize(percent_yes = mean(vote == \"yes\")) |&gt;\n  arrange(desc(percent_yes))\n\n# A tibble: 6 × 3\n# Groups:   country [1]\n  country       issue                                percent_yes\n  &lt;chr&gt;         &lt;fct&gt;                                      &lt;dbl&gt;\n1 United States Economic development                       0.282\n2 United States Arms control and disarmament               0.265\n3 United States Human rights                               0.242\n4 United States Nuclear weapons and nuclear material       0.214\n5 United States Colonialism                                0.150\n6 United States Palestinian conflict                       0.106\n\n\nIt voted yes the most on Economic development (~28.2%) and the least on the Palestinian conflict (~10.6%)\n\n\nQ4. Two countries, one issue\nFilter to the United States and Canada on “Human rights”, then make a bar chart with one bar per country, filled by vote (position = \"fill\"). Do the two countries mostly agree?\n\nunv %&gt;% \n  filter(country == c(\"United States\", \"Canada\")) %&gt;%\n  group_by(issue == \"Human Rights\") %&gt;%\n  ggplot(aes(x = country, fill = vote)) +\n  geom_bar(position = \"fill\") +\n  labs(title = \"Comparing Votes on Human Rights Issues\", subtitle = \"United States vs. Canada\",\n       y = \"Votes\", x = \"Country\")\n\n\n\n\n\n\n\n\nNo, the United States and Canada do not mostly agree on Human Rights issues. The United States has voted ‘no’ on Human Rights issues more than twice as much as Canada. Canada has also abstained from voting nearly twice as much as the United States. This indicates the two countries are very divided on Human Rights issues and disagree quite often.",
+    "crumbs": [
+      "Home",
+      "Assignments",
+      "AE05 - Git together"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "385_website",
+    "section": "",
+    "text": "The website example I liked was this cool opensource recipe book where anyone can contribute their own recipes with a cool nifty home animation:\nhttps://fluidsyndicate.com/"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi, I’m a third year double majoring in Compute Science and Math here at Chico State."
+  }
+]
