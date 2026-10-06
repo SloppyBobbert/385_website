@@ -13,7 +13,7 @@ website:
       - about.qmd
     right:
       - icon: github
-        href: https://github.com/yourusername
+        href: https://github.com/SloppyBobbert/385_website
   sidebar:
     style: "docked"
     search: true
